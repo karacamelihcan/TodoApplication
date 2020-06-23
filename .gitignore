@@ -7,3 +7,5 @@
 /TodoApplication/bin/Debug/netcoreapp3.1
 /TodoApplication/obj
 /TodoApplication/TodoApplication.csproj.user
+/TodoApplication/.vs/TodoApplication/DesignTimeBuild
+/TodoApplication/.vs/TodoApplication/config
