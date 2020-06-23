@@ -15,8 +15,23 @@
                     <td>Due</td>
                 </tr>
             </thead>
+            @foreach (var item in Model.Items)
+            {
+                <tr>
+                    <td>@item.IsDone</td>
+                    <td>@item.Title</td>
+                    <td>@item.DueAt</td>
+                </tr>
+            }
         </table>
-        
 
+        <div class="panel-footer add-item-form"> @*partial viewa dönmeli*@
+            <form>
+                <div id="add-item-error" class="text-danger"></div>
+                <label for="add-item-title">Yeni yapılacak ekle:</label>
+                <input id="add-item-title">
+                <button type="button" id="add-item-button">Ekle</button>
+            </form>
+        </div>
     </div>
 
