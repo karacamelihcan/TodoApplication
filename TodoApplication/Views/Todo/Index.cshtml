@@ -1,5 +1,5 @@
 ﻿@model TodoViewModel
-
+@using Humanizer
 @{
     ViewData["Title"] = "Yapılacaklar Listesini Yönet";
 }
@@ -20,7 +20,7 @@
                 <tr>
                     <td>@item.IsDone</td>
                     <td>@item.Title</td>
-                    <td>@item.DueAt</td>
+                    <td>@item.DueAt.Humanize()</td>
                 </tr>
             }
         </table>
