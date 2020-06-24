@@ -1,8 +1,10 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using TodoApplication.Models;
 using TodoApplication.Services;
 
 namespace TodoApplication
@@ -21,6 +23,9 @@ namespace TodoApplication
         {
             services.AddSingleton<ITodoItemService, FakeTodoItemService>();
             services.AddControllersWithViews();
+
+            services.AddDbContext<TodoDbContext>(options =>
+                options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
 
         }
 
