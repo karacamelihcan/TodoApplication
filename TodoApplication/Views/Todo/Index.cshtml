@@ -1,8 +1,11 @@
-﻿@model TodoViewModel
-@using Humanizer
+﻿@model TodoViewModel;
+@using Humanizer;
+
 @{
-    ViewData["Title"] = "Yapılacaklar Listesini Yönet";
+    ViewData["Title"] = ViewBag.Title;
 }
+
+    <h1>@ViewData["Title"]</h1>
 
     <div class="panel panel-default todo-panel">
         <div class="panel-heading">@ViewData["Title"]</div>
@@ -15,6 +18,7 @@
                     <td>Due</td>
                 </tr>
             </thead>
+
             @foreach (var item in Model.Items)
             {
                 <tr>
@@ -23,9 +27,10 @@
                     <td>@item.DueAt.Humanize()</td>
                 </tr>
             }
+
         </table>
 
-        <div class="panel-footer add-item-form"> @*partial viewa dönmeli*@
+        <div class="panel-footer add-item-form"> @*partial view'a dönmeli*@
             <form>
                 <div id="add-item-error" class="text-danger"></div>
                 <label for="add-item-title">Yeni yapılacak ekle:</label>
@@ -34,4 +39,3 @@
             </form>
         </div>
     </div>
-
