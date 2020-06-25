@@ -8,25 +8,23 @@ namespace TodoApplication.Services
 {
     public class RealTodoItemService : ITodoItemService
     {
-        public Task<IEnumerable<TodoItem>> GetIncompleteItemAsync()
+        public Task<IEnumerable<TodoItem>> GetIncompleteItemsAsync()
         {
-            //Return an array of TodoItems
             IEnumerable<TodoItem> items = new[]
             {
-                new TodoItem // object initializer
+                new TodoItem //object initializer
                 {
-                    Title="Test",
-                    DueAt= DateTimeOffset.Now.AddDays(1)
+                    Title = "test",
+                    DueAt = DateTimeOffset.Now.AddDays(1)
                 },
                 new TodoItem
                 {
-                    Title="Test 2",
-                    DueAt=DateTimeOffset.Now.AddDays(2)
+                    Title = "test2",
+                    DueAt = DateTimeOffset.Now.AddDays(2)
                 }
             };
 
             return Task.FromResult(items);
         }
-
     }
 }
