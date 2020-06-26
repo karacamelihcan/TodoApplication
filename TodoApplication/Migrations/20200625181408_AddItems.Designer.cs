@@ -9,8 +9,8 @@ using TodoApplication.Data;
 namespace TodoApplication.Migrations
 {
     [DbContext(typeof(TodoDbContext))]
-    [Migration("20200614072357_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20200625181408_AddItems")]
+    partial class AddItems
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

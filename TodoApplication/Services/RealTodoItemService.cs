@@ -2,29 +2,29 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using TodoApplication.Data;
 using TodoApplication.Models;
 
 namespace TodoApplication.Services
 {
     public class RealTodoItemService : ITodoItemService
     {
-        public Task<IEnumerable<TodoItem>> GetIncompleteItemsAsync()
+        //TODO: DBContext bağımlılığı giderilecek(TAMAMLANDI)
+        private readonly TodoDbContext context;
+        public RealTodoItemService(TodoDbContext context)
         {
-            IEnumerable<TodoItem> items = new[]
-            {
-                new TodoItem //object initializer
-                {
-                    Title = "test",
-                    DueAt = DateTimeOffset.Now.AddDays(1)
-                },
-                new TodoItem
-                {
-                    Title = "test2",
-                    DueAt = DateTimeOffset.Now.AddDays(2)
-                }
-            };
+            this.context = context;
+        }
 
-            return Task.FromResult(items);
+        public async Task<IEnumerable<TodoItem>> GetIncompleteItemsAsync()
+        {
+            var items = await context.TodoItems
+                .Where(x => x.IsDone == false)
+                .ToArrayAsync();
+
+            return items;
+
         }
     }
 }

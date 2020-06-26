@@ -24,12 +24,14 @@ namespace TodoApplication
         {
             services.AddControllersWithViews();
 
-            //Dependencies
-            services.AddSingleton<ITodoItemService, FakeTodoItemService>();
-            services.AddSingleton<IKodluyoruzLogger, KodluyoruzLogger>();
-
             services.AddDbContext<TodoDbContext>(options =>
                 options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
+            //Dependencies
+            services.AddScoped<ITodoItemService, RealTodoItemService>();
+
+            services.AddSingleton<IKodluyoruzLogger, KodluyoruzLogger>();
+
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
