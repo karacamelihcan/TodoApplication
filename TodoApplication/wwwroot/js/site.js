@@ -6,14 +6,20 @@ $(document).ready(function () {
 
     // Add butonuna tıklanıldığında addItem fonksiyonu çalışacak.
     $('#add-item-button').on('click', addItem);
+    $('.done-checkbox').on('click', function (e) {
+        markCompleted(e.target);
+    });
 
 });
 function addItem() {
     $('#add-item-error').hide();
+    $('#add-item-successfull').hide();
     var newTitle = $('#add-item-title').val();
 
     $.post('/Todo/AddItem', { title: newTitle }, function () {
-            window.location = "/Todo";
+        window.location = "/Todo";
+        $('#add-item-successfull').text("Ekleme Başarılı");
+        $('#add-item-successfull').show();
         })
         .fail(function (data) {
             if (data && data.responseJSON) {
@@ -22,4 +28,12 @@ function addItem() {
                 $('#add-item-error').show();
             }
         });
+}
+function markCompleted(checkbox) {
+    checkbox.disabled = true;
+    $.post('/Todo/MarkDone', { id: checkbox.name }, function () {
+        var row = checkbox.parentElement.parentElement;
+        $(row).addClass('done');
+        window.location = "/Todo";
+    });
 }
