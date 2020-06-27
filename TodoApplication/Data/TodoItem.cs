@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace TodoApplication.Data
 {
@@ -12,6 +13,7 @@ namespace TodoApplication.Data
     {
         public Guid Id { get; set; }
         public bool IsDone { get; set; }
+        [Required]
         public string Title { get; set; } //code snippet
         public DateTimeOffset? DueAt { get; set; }
     }
