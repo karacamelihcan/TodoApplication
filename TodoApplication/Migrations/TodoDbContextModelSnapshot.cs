@@ -16,7 +16,7 @@ namespace TodoApplication.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.5");
 
-            modelBuilder.Entity("TodoApplication.Models.TodoItem", b =>
+            modelBuilder.Entity("TodoApplication.Data.TodoItem", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -29,6 +29,7 @@ namespace TodoApplication.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Title")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");

@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -7,6 +8,7 @@ using Microsoft.Extensions.Hosting;
 using TodoApplication.Data;
 using TodoApplication.Services;
 using TodoApplication.Utilities.Loggers;
+
 
 namespace TodoApplication
 {
@@ -23,7 +25,9 @@ namespace TodoApplication
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-
+            
+            services.AddIdentityCore<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                .AddEntityFrameworkStores<TodoDbContext>();
             services.AddDbContext<TodoDbContext>(options =>
                 options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
             //Dependencies
@@ -49,6 +53,7 @@ namespace TodoApplication
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

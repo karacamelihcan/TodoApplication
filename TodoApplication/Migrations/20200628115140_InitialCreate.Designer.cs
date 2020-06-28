@@ -9,8 +9,8 @@ using TodoApplication.Data;
 namespace TodoApplication.Migrations
 {
     [DbContext(typeof(TodoDbContext))]
-    [Migration("20200625181408_AddItems")]
-    partial class AddItems
+    [Migration("20200628115140_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -18,7 +18,7 @@ namespace TodoApplication.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.5");
 
-            modelBuilder.Entity("TodoApplication.Models.TodoItem", b =>
+            modelBuilder.Entity("TodoApplication.Data.TodoItem", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -31,6 +31,7 @@ namespace TodoApplication.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Title")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
