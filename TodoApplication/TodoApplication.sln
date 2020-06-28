@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30128.74
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoApplication", "TodoApplication.csproj", "{C2A15E2A-A817-4F90-821C-1C55C63EAA18}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TodoApplication", "TodoApplication.csproj", "{C2A15E2A-A817-4F90-821C-1C55C63EAA18}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Todo.IdentityExample", "..\Todo.IdentityExample\Todo.IdentityExample.csproj", "{F05EB0A1-CE8F-4BE4-BC21-2C766DF06F0A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{C2A15E2A-A817-4F90-821C-1C55C63EAA18}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C2A15E2A-A817-4F90-821C-1C55C63EAA18}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C2A15E2A-A817-4F90-821C-1C55C63EAA18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F05EB0A1-CE8F-4BE4-BC21-2C766DF06F0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F05EB0A1-CE8F-4BE4-BC21-2C766DF06F0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F05EB0A1-CE8F-4BE4-BC21-2C766DF06F0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F05EB0A1-CE8F-4BE4-BC21-2C766DF06F0A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -9,3 +9,5 @@
 /TodoApplication/TodoApplication.csproj.user
 /TodoApplication/.vs/TodoApplication/DesignTimeBuild
 /TodoApplication/.vs/TodoApplication/config
+/Todo.IdentityExample/aspnet-Identity.mdf
+/Todo.IdentityExample/aspnet-Identity_log.ldf
